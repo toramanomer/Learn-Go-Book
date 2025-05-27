@@ -44,3 +44,35 @@ func TestExercise1(t *testing.T) {
 		t.Errorf("expected %q, got %q", expected, actual)
 	}
 }
+
+func TestExercise2(t *testing.T) {
+	var buffer bytes.Buffer
+
+	exercise2(&buffer)
+
+	expected := "10\n10\n"
+	actual := buffer.String()
+
+	if expected != actual {
+		t.Errorf("expected: %q, got: %q", expected, actual)
+	}
+}
+
+func TestExercise3(t *testing.T) {
+	b, smallI, bigI := exercise3()
+
+	var expectedB byte
+	var expectedSmallI int32 = -2147483648
+	var expectedBigI uint64
+
+	if expectedB != b {
+		t.Errorf("expected: %b, got %b", expectedB, b)
+	}
+	if expectedSmallI != smallI {
+		t.Errorf("expected: %d, got %d", expectedSmallI, smallI)
+	}
+	if expectedBigI != bigI {
+		t.Errorf("expected: %d, got %d", expectedBigI, bigI)
+	}
+
+}
